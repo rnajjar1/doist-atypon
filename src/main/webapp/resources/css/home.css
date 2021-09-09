@@ -1,0 +1,333 @@
+
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+.menu{
+    top: 0;
+    margin:auto;
+    min-height:100px;
+    background:#196666;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+
+.bar {
+    min-height: 120px;
+    list-style-type: none;
+    margin: 0;
+    padding-top: 40px;
+    padding-right: 40px;
+    background-color: #333;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #196666;
+
+}
+
+.menu2{
+    position: absolute;
+    width: 150px;
+    background:#196666;
+    height: 100%;
+    -o-object-position:center;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+
+.navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    background-color: #f1f1f1;
+}
+
+li b {
+    display: block;
+    color: #000;
+    padding: 25px 16px;
+}
+
+/* Change the link color on hover */
+li b:hover {
+    background-color:#000000;
+    color: white;
+}
+
+.container{
+    float: left;
+margin: 15px;
+}
+.container2{
+    float: left;
+    margin: 15px;
+}
+body{
+    right: 500px;
+    top: 300px;
+    overflow: auto;
+}
+.font-robo {
+    font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+}
+
+.font-poppins {
+    font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+}
+
+.font-opensans {
+    font-family: "Open Sans", "Arial", "Helvetica Neue", sans-serif;
+}
+
+
+
+
+
+.form-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    /*-webkit-align-items: flex-start;*/
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding: 24px 55px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.form-row .name {
+    width: 188px;
+    color: #333;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 11px;
+}
+
+.form-row .value {
+    width: -webkit-calc(100% - 188px);
+    width: -moz-calc(100% - 188px);
+    width: calc(100% - 188px);
+}
+
+
+/* ==========================================================================
+   #BOX-SIZING
+   ========================================================================== */
+/**
+ * More sensible default box-sizing:
+ * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ */
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+button {
+    outline: none;
+    background: none;
+    border: none;
+}
+
+/* ==========================================================================
+   #PAGE WRAPPER
+   ========================================================================== */
+.page-wrapper {
+    min-height: 100vh;
+    padding-bottom: 300px;
+}
+
+body {
+    font-family: "Open Sans", "Arial", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+
+/* ==========================================================================
+   #WRAPPER
+   ========================================================================== */
+.wrapper {
+    margin-top: 15px;
+    margin-left: 300px;
+}
+
+.wrapper--w960 {
+    max-width: 960px;
+}
+
+.wrapper--w900 {
+    max-width: 900px;
+}
+
+.wrapper--w790 {
+    max-width: 790px;
+}
+
+.wrapper--w780 {
+    max-width: 780px;
+}
+
+.wrapper--w680 {
+    max-width: 680px;
+}
+
+/* ==========================================================================
+   #BUTTON
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    line-height: 50px;
+    padding: 0 30px;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: 700;
+    color: #fff;
+    font-family: inherit;
+}
+
+.btn--radius-2 {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.btn--blue-2 {
+    background: #2c6ed5;
+}
+
+.btn--blue-2:hover {
+    background: #185ac1;
+}
+
+
+
+
+/* ==========================================================================
+   #FORM
+   ========================================================================== */
+input,
+textarea {
+    outline: none;
+    margin: 0;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    width: 100%;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+textarea {
+    resize: none;
+}
+
+.input-group {
+    position: relative;
+    margin: 0;
+}
+
+.input--style-6,
+.textarea--style-6 {
+    background: transparent;
+    line-height: 38px;
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #666;
+    font-size: 15px;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    padding: 0 20px;
+}
+
+
+.input--style-6:focus,
+.textarea--style-6:focus {
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
+    -webkit-transform: translateY(-3px);
+    -moz-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    -o-transform: translateY(-3px);
+    transform: translateY(-3px);
+}
+
+.textarea--style-6 {
+    line-height: 1.2;
+    min-height: 120px;
+    padding: 10px 20px;
+}
+
+
+
+
+
+.card-6 .card-body {
+    background: #fff;
+    position: relative;
+    border: 1px solid #e5e5e5;
+    border-bottom: none;
+    padding: 30px 0 0;
+    -webkit-border-top-left-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-right-radius: 3px;
+}
+
+
+.card-6 .card-footer {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-top: none;
+    -webkit-border-bottom-left-radius: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    border-bottom-left-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 50px 55px;
+}
+
+
