@@ -1,7 +1,7 @@
 package com.doeist.Model.Employee;
 
-import com.SignupValidator.PasswordMatches;
-import com.SignupValidator.ValidEmail;
+import com.doeist.SignupValidator.PasswordMatches;
+import com.doeist.SignupValidator.ValidEmail;
 
 import javax.validation.constraints.NotEmpty;
 

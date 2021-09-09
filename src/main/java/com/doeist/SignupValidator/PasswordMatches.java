@@ -1,4 +1,4 @@
-package com.SignupValidator;
+package com.doeist.SignupValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

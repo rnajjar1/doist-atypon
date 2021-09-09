@@ -1,4 +1,4 @@
 FROM openjdk:8
 EXPOSE 8080
-ADD target/doist.jar doist.jar
-ENTRYPOINT ["java","-jar","/doist.jar"]
+ADD target/demo.jar demo.jar
+ENTRYPOINT ["java","-jar","/demo.jar"]
