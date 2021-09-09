@@ -101,6 +101,7 @@
 			</plugin>
 
 		</plugins>
+		<finalName>doist</finalName>
 	</build>
 
 </project>
