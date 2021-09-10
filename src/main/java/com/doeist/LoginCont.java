@@ -58,7 +58,6 @@ public class LoginCont {
     public String register(@ModelAttribute("userf") @Valid Employee userf,
                            BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            System.out.println("bindingResult have error");
             model.addAttribute("userf", userf);
             return "welcome";
         }

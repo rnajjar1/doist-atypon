@@ -25,6 +25,7 @@ public class TaskService implements TaskRepository,IRead,IWrite {
                 myTasksList.add(task);
             }
         }
+        System.out.println("myTasksList"+taskList.size());
         return myTasksList;
     }
 
@@ -65,5 +66,10 @@ public class TaskService implements TaskRepository,IRead,IWrite {
     public void updateTask(int id, String description, boolean status, String note) {
         taskDao.updateTask(id, description, status, note);
 
+    }
+
+    @Override
+    public List<Task> getAllTasks() {
+      return taskDao.getAllTask();
     }
 }

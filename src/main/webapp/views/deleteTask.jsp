@@ -1,5 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <link rel="stylesheet" href="/resources/css/home.css">
 
@@ -25,8 +25,8 @@
             <li><a class="active" href="/delete-task">Delete Task</a></li>
             <li><a href="/update-task">Update Task</a></li>
             <li><a href="/create-task">Create Task</a></li>
-            <li><a href="#about">All Tasks</a></li>
-            <li><a href="#about">My Tasks</a></li>
+            <li><a href="/all-tasks">All Tasks</a></li>
+            <li><a href="/my-tasks">My Tasks</a></li>
             <h2 class="Welcome" align="left">
                 Welcome ${employee.getName()}
             </h2>

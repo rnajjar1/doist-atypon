@@ -10,23 +10,42 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
-@SessionAttributes("employee")
+@SessionAttributes({"employee","list"})
 @Controller
 public class HomeCont {
 
     private final TaskService taskService=new TaskService();
     private final EmployeeService employeeService=new EmployeeService();
 
-
     @RequestMapping(value = "/home")
     public String home(Authentication authentication,@ModelAttribute("userf")Employee employee,
                        Model model ) {
         model.addAttribute("employee",employeeService.getByEmail(employee.getEmail()));
+        List<Task> taskList=taskService.getAllMyTasks(employee.getEmail());
+            model.addAttribute("list", taskList);
         return authentication==null ? "redirect:/login" :"home";
     }
 
+    @RequestMapping(value = "/my-tasks", method = RequestMethod.GET)
+    public String myTasks(Authentication authentication,@ModelAttribute("employee")Employee employee,
+                          Model model){
+        System.out.println("employee name"+employee.getEmail());
+        List<Task> taskList=taskService.getAllMyTasks(employee.getEmail());
+            model.addAttribute("list", taskList);
+        System.out.println("taskList" + taskList.size());
+        return authentication==null ? "redirect:/login" :"home";
+    }
+
+    @RequestMapping(value = "/all-tasks", method = RequestMethod.GET)
+    public String allTasks(Authentication authentication,@ModelAttribute("employee")Employee employee,
+                          Model model){
+        List<Task> taskList=taskService.getAllTasks();
+            model.addAttribute("list", taskList);
+        return authentication==null ? "redirect:/login" :"home";
+    }
     @RequestMapping(value = "/create-task", method = RequestMethod.GET)
     public String createGet(Authentication authentication ) {
         System.out.println("here we go ");

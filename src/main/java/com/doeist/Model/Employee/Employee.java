@@ -62,13 +62,4 @@ public class Employee {
         this.matchingPassword = matchingPassword;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", matchingPassword='" + matchingPassword + '\'' +
-                '}';
-    }
 }

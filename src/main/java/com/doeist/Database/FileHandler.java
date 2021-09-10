@@ -64,7 +64,7 @@ public class FileHandler implements Operations {
         task1.put("Note",t.getNote());
         task1.put("Status",t.isStatus());
         task1.put("Priority",t.getPriority());
-      //  task1.put("id",t.getId());
+        task1.put("id",key);
         task1.put("Date",t.getDate());
         tasksJson.put(""+key,task1);
         fileWriter(tasksJson,"Task");

@@ -16,5 +16,7 @@ public interface TaskRepository {
 
     List<Task> getTaskSortedByPriority();
 
+    public List<Task> getAllTasks();
+
 
 }
