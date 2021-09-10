@@ -24,7 +24,6 @@ public class EmployeeDao {
         parser = new Parser();
     }
 
-
     /**
      * retrieve all recently accessed Employees
      * that are stored in cache
@@ -54,10 +53,7 @@ public class EmployeeDao {
 
     public List<Employee> getAllEmployee() {
         List<Employee> allEmployee = new ArrayList<>();
-
-
         Iterator<String> keys=fileHandler.getEmployeeJson().keys();
-        System.out.println("number of keys " +keys.hasNext());
         while (keys.hasNext()){
             String key =keys.next();
             JSONObject employee = (JSONObject) fileHandler.getEmployeeJson().get("" + key);
@@ -66,7 +62,6 @@ public class EmployeeDao {
         }
 
         return allEmployee;
-
     }
 
 

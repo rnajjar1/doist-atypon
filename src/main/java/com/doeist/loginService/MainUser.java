@@ -20,11 +20,6 @@ public class MainUser implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
         return Collections.singleton(new SimpleGrantedAuthority("employee"));
-//        List<GrantedAuthority> authorities=new ArrayList<>();
-//        GrantedAuthority authority=new SimpleGrantedAuthority("user");
-//        authorities.add(authority);
-//        return authorities;
-
     }
 
     @Override

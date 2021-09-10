@@ -23,10 +23,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 
     @Bean
     public AuthenticationProvider authProvider(){
-        System.out.println("do we reach here");
         DaoAuthenticationProvider provider=new DaoAuthenticationProvider();
         provider.setPasswordEncoder(bCryptPasswordEncoder());
-
         provider.setUserDetailsService(userDetailsService);
 
         return provider;
@@ -38,24 +36,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
     }
 
 
-
-
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-////        auth.inMemoryAuthentication().withUser("user").
-////                password(passwordEncoder().encode("123")).roles("USER");
-//        System.out.println("whattttt");
-//        System.out.println(userDetailsService.toString());
-//        auth.userDetailsService(userDetailsService);
-//
-//
-//    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/menu").hasRole("employee")
-
                 // to specify the login for jsp
                 .and().formLogin().loginPage("/login").usernameParameter("email").permitAll()
                 .successForwardUrl("/menu");

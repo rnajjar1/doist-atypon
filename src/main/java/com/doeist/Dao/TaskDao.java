@@ -11,7 +11,6 @@ import java.util.*;
 public class TaskDao {
 
     private static CacheL1 cacheL1;
-
     private static Parser parser;
     private static FileHandler fileHandler;
     private static CacheL2 cacheL2;

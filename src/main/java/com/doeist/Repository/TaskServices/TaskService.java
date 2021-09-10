@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class TaskService implements TaskRepository {
+public class TaskService implements TaskRepository,IRead,IWrite {
 
     private TaskDao taskDao;
 
@@ -18,7 +18,7 @@ public class TaskService implements TaskRepository {
     @Override
     public List<Task> getAllMyTasks(String email) {
         List<Task> taskList = taskDao.getAllTask();
-        System.out.println("size of  task list"+taskList.size());
+        System.out.println("size of  task list" + taskList.size());
         List<Task> myTasksList = new ArrayList<>();
         for (Task task : taskList) {
             if (task.getEmployee().getEmail().equals(email)) {
@@ -28,16 +28,9 @@ public class TaskService implements TaskRepository {
         return myTasksList;
     }
 
-
     @Override
     public Task getTaskById(int id) {
         return taskDao.getTaskById(id);
-
-    }
-
-    @Override
-    public void updateTask(int id, String description, boolean status, String note) {
-        taskDao.updateTask(id, description, status, note);
 
     }
 
@@ -54,20 +47,23 @@ public class TaskService implements TaskRepository {
 
     @Override
     public List<Task> getTasksSortedByDate() {
-        List<Task> allTask=taskDao.getAllTask();
-         Collections.sort(allTask);
-         return allTask;
-
-
-
+        List<Task> allTask = taskDao.getAllTask();
+        Collections.sort(allTask);
+        return allTask;
     }
 
     @Override
     public List<Task> getTaskSortedByPriority() {
-        List<Task> allTask=taskDao.getAllTask();
+        List<Task> allTask = taskDao.getAllTask();
 
-        Collections.sort(allTask,new Task());
+        Collections.sort(allTask, new Task());
 
         return allTask;
+    }
+
+    @Override
+    public void updateTask(int id, String description, boolean status, String note) {
+        taskDao.updateTask(id, description, status, note);
+
     }
 }

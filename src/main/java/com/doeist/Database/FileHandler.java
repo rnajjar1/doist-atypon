@@ -12,16 +12,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
 
-public class FileHandler {
+public class FileHandler implements Operations {
 
     private static FileHandler fileHandler;
     private static JSONObject tasksJson;
     private static JSONObject employeeJson;
     private static final String TASKNAME ="com.doeist.Model.Task.Task";
 
-
-    // TODO: ٣١/٠٨/٢٠٢١ you have to create update and delete
-    // TODO: ٣١/٠٨/٢٠٢١ continue the ui
     private FileHandler() {
     }
 
@@ -79,7 +76,6 @@ public class FileHandler {
         employee.put("Name",e.getName());
         employee.put("Email",e.getEmail());
         employee.put("Password",e.getPassword());
-       // employee.put("id",e.getId());
         employeeJson.put(""+key,employee);
         fileWriter(employeeJson,"Employee");
 
@@ -103,10 +99,7 @@ public class FileHandler {
             return loadTask(id);
         }else
             return loadEmployee( id);
-
     }
-
-
     private Task  loadTask(int id){
         JSONObject task=(JSONObject) tasksJson.get(""+id);
         Gson gson = new GsonBuilder()
@@ -116,7 +109,6 @@ public class FileHandler {
         return gson.fromJson(json_string, Task.class);
 
     }
-
 
     private Employee loadEmployee(int id){
         JSONObject employee=(JSONObject) employeeJson.get(""+id);

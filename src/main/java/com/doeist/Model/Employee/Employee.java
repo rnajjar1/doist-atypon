@@ -19,22 +19,15 @@ public class Employee {
     private String password;
     private String matchingPassword;
 
-
-
-    // private int id;
-
-
-
-    private Employee(){
+    private Employee() {
 
     }
 
-    public Employee(String name, String email, String password,String matchingPassword) {
+    public Employee(String name, String email, String password, String matchingPassword) {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.matchingPassword=matchingPassword;
-    //    this.id = id;
+        this.matchingPassword = matchingPassword;
     }
 
     public String getName() {
@@ -69,14 +62,13 @@ public class Employee {
         this.matchingPassword = matchingPassword;
     }
 
-    //    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-
-
-
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", matchingPassword='" + matchingPassword + '\'' +
+                '}';
+    }
 }

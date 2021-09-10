@@ -10,28 +10,22 @@ import java.util.List;
 public class Task implements Comparable<Task>, Comparator<Task> {
 
 private Employee employee;
-
 private String note;
-
 private String description;
-
 private boolean status;
-
 private Date Date;
-
 private int id;
-
 private String priority;
 
-    List<String> definedOrder = // define my custom order
+private List<String> definedOrder = // define my custom order
             Arrays.asList("High", "Medium", "Low");
-
 
 public Task(){
 
 
 }
-    public Task(Employee employee, String note, String description, boolean status, java.util.Date date, int id, String priority) {
+    public Task(Employee employee, String note, String description,
+                boolean status, java.util.Date date, int id, String priority) {
         this.employee = employee;
         this.note = note;
         this.description = description;
@@ -107,5 +101,19 @@ public Task(){
 
         return Integer.compare(definedOrder.indexOf(o1.getPriority()), definedOrder.indexOf(o2.getPriority()));
 
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "employee=" + employee +
+                ", note='" + note + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                ", Date=" + Date +
+                ", id=" + id +
+                ", priority='" + priority + '\'' +
+                ", definedOrder=" + definedOrder +
+                '}';
     }
 }

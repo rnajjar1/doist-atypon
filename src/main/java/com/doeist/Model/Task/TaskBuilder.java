@@ -7,22 +7,16 @@ import java.util.Date;
 public class TaskBuilder {
 
     private Employee employee;
-
     private String note;
-
     private String description;
-
     private boolean status;
-
     private Date date;
-
     private int id;
-
     private String priority;
 
-    public Task getTask(){
-        return new Task(employee, note,description,
-         status, date, id, priority);
+    public Task getTask() {
+        return new Task(employee, note, description,
+                status, date, id, priority);
     }
 
     public TaskBuilder setEmployee(Employee employee) {
@@ -59,4 +53,6 @@ public class TaskBuilder {
         this.priority = priority;
         return this;
     }
+
+
 }

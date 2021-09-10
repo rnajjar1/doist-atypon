@@ -4,21 +4,15 @@ import org.springframework.context.annotation.Bean;
 
 public class EmployeeBuilder {
 
-
     private String name;
-
     private String email;
-
     private String password;
-
     private String matchingPassword;
-
-
     private int id;
 
     @Bean
-    public Employee getEmployee(){
-        return new Employee(name, email, password,matchingPassword);
+    public Employee getEmployee() {
+        return new Employee(name, email, password, matchingPassword);
     }
 
     public EmployeeBuilder setName(String name) {

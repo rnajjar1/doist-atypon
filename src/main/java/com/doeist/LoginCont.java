@@ -29,10 +29,9 @@ public class LoginCont {
 
 
     @RequestMapping(value = "/menu")
-    public String login3Post(ModelMap model, @RequestParam("email") String email,
-                             @RequestParam("password") String password
+    public String getMenu(ModelMap model, @RequestParam("email") String email,
+                          @RequestParam("password") String password
             , RedirectAttributes redirectAttributes) {
-        System.out.println("why this ");
         Employee employee = new EmployeeBuilder().setEmail(email).setPassword(password).getEmployee();
         model.addAttribute("userf", employee);
         redirectAttributes.addFlashAttribute("userf", employee);
@@ -51,7 +50,6 @@ public class LoginCont {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginGet(Model model) {
-        System.out.println("ehlfkdj;flkjlkj;lkj");
             model.addAttribute("userf", employee);
         return "welcome";
     }
@@ -64,14 +62,16 @@ public class LoginCont {
             model.addAttribute("userf", userf);
             return "welcome";
         }
+
+        employee = new EmployeeBuilder().setEmail(userf.getEmail())
+                .setPassword(userf.getPassword()).setName(userf.getName())
+                .setMatchingPassword(userf.getMatchingPassword()).getEmployee();
         try {
-            employee = new EmployeeBuilder().setEmail(userf.getEmail())
-                    .setPassword(userf.getPassword()).setName(userf.getName())
-                    .setMatchingPassword(userf.getMatchingPassword()).getEmployee();
             userService.register(userf);
 
         } catch (UserAlreadyExistException e) {
-            bindingResult.rejectValue("email", "userf.email", "An account already exists for this email.");
+            bindingResult.rejectValue("email", "userf.email",
+                    "An account already exists for this email.");
             model.addAttribute("userf", userf);
             return "welcome";
         }
