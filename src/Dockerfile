@@ -1,5 +1,5 @@
 FROM openjdk:11
-COPY target/demo-0.0.1-SNAPSHOT.jar ./temp
+COPY ../target/demo-0.0.1-SNAPSHOT.jar ./temp
 ENTRYPOINT ["java","-jar","demo-0.0.1-SNAPSHOT.jar"]
 
 #nn
