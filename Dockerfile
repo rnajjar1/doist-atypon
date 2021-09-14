@@ -11,9 +11,9 @@
 #ENTRYPOINT ["java","-jar","/app.jar"]
 
 
-FROM tomcat:9-jre8-alpine
+FROM openjdk:8
 #RUN apt-get update && apt-get install librrds-perl rrdtool -y
 #ARG JAR_FILE=target/*.jar
 EXPOSE 8080
-COPY target/demo-0.0.1-SNAPSHOT.jar ./temp
+COPY target/demo-0.0.1-SNAPSHOT.jar  demo-0.0.1-SNAPSHOT.jar
 ENTRYPOINT ["java","-jar","demo-0.0.1-SNAPSHOT.jar"]
