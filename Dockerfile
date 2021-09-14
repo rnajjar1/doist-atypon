@@ -4,8 +4,15 @@
 #
 ##nn
 
+#
+#FROM openjdk:8-jdk-alpine
+#ARG JAR_FILE=target/*.jar
+#COPY ${JAR_FILE} app.jar
+#ENTRYPOINT ["java","-jar","/app.jar"]
 
-FROM openjdk:8-jdk-alpine
+
+FROM tomcat:9-jre8-alpine
+RUN apt-get update && apt-get install librrds-perl rrdtool -y
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
