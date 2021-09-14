@@ -11,9 +11,7 @@
 #ENTRYPOINT ["java","-jar","/app.jar"]
 
 
-FROM openjdk:8
-#RUN apt-get update && apt-get install librrds-perl rrdtool -y
-#ARG JAR_FILE=target/*.jar
+FROM rahmeh21/doist:latest
 EXPOSE 8080
 COPY target/*.jar  demo-0.0.1-SNAPSHOT.jar
 ENTRYPOINT ["java","-jar","demo-0.0.1-SNAPSHOT.jar"]
