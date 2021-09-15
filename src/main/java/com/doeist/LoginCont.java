@@ -2,7 +2,6 @@ package com.doeist;
 
 import com.doeist.Model.Employee.Employee;
 import com.doeist.Model.Employee.EmployeeBuilder;
-import com.doeist.Repository.EmployeeServices.EmployeeService;
 import com.doeist.SignUp.UserAlreadyExistException;
 import com.doeist.SignUp.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +22,10 @@ public class LoginCont {
     @Autowired
     private UserService userService;
 
-    private EmployeeService employeeService = new EmployeeService();
+    HomeCont homeCont=new HomeCont();
 
     private Employee employee = new EmployeeBuilder().getEmployee();
+
 
 
     @RequestMapping(value = "/menu")
@@ -43,7 +43,6 @@ public class LoginCont {
     @RequestMapping(value = "/fail")
     public String failLogin(ModelMap model) {
         model.addAttribute("error","Email or Password is incorrect" );
-
         return "welcome";
     }
 
@@ -76,5 +75,8 @@ public class LoginCont {
         }
         return "redirect:/login";
     }
+
+
+
 
 }

@@ -26,11 +26,13 @@ public class Parser {
         String note=jsonObject.getString("Note");
         boolean status=jsonObject.getBoolean("Status");
         Date date=(Date) jsonObject.get("Date");
+        int id=jsonObject.getInt("id");
+
         Employee employee=(Employee) jsonObject.get("Employee");
 
         return new TaskBuilder().setDescription(taskDescription).setNote(note)
                 .setStatus(status).setPriority(priority).setDate(date)
-                .setEmployee(employee).getTask();
+                .setEmployee(employee).setId(id).getTask();
 
     }
 

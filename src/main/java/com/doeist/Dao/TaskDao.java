@@ -18,7 +18,7 @@ public class TaskDao {
     public TaskDao(){
         cacheL1=CacheL1.getInstance();
         fileHandler= FileHandler.getInstance();
-        cacheL2=CacheL2.getInstence();
+        cacheL2=CacheL2.getInstance();
         parser = new Parser();
 
     }

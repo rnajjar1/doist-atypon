@@ -32,10 +32,8 @@ public class HomeCont {
     @RequestMapping(value = "/my-tasks", method = RequestMethod.GET)
     public String myTasks(Authentication authentication,@ModelAttribute("employee")Employee employee,
                           Model model){
-        System.out.println("employee name"+employee.getEmail());
         List<Task> taskList=taskService.getAllMyTasks(employee.getEmail());
             model.addAttribute("list", taskList);
-        System.out.println("taskList" + taskList.size());
         return authentication==null ? "redirect:/login" :"home";
     }
 
@@ -48,14 +46,12 @@ public class HomeCont {
     }
     @RequestMapping(value = "/create-task", method = RequestMethod.GET)
     public String createGet(Authentication authentication ) {
-        System.out.println("here we go ");
         return authentication==null ? "redirect:/login" :"createTask";
     }
 
     @RequestMapping(value = "/create-task", method = RequestMethod.POST)
     public String createTask(@RequestParam Map<String,String> allRequestParams,
                              @ModelAttribute("employee")Employee employee){
-        System.out.println("employeeeeeee" +employee.getName());
         Task task= getTask(allRequestParams,employeeService.getByEmail(employee.getEmail()));
         taskService.createTask(task);
         return "successfullyCreated";

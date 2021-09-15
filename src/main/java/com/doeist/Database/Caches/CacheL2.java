@@ -1,6 +1,7 @@
 package com.doeist.Database.Caches;
 
 import com.doeist.Database.FileHandler;
+import com.doeist.Database.IdGenerator;
 import com.doeist.Model.Task.Task;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,19 +14,20 @@ public class CacheL2 {
     private static ReentrantReadWriteLock lock;
     private static ConcurrentHashMap<Integer, CacheL1.Node> entityMap;
     private static int key;
+    private static IdGenerator idGenerator;
     private static CacheL2 cacheL2;
 
     private CacheL2() {
 
     }
 
-    public static CacheL2 getInstence() {
+    public static CacheL2 getInstance() {
         if (cacheL2 == null) {
             cacheL2 = new CacheL2();
             cacheL1 = CacheL1.getInstance();
             fileHandler = FileHandler.getInstance();
             lock = new ReentrantReadWriteLock();
-            // might produce an error
+            idGenerator=IdGenerator.getIdInstance();
             entityMap = CacheL1.getEntitiesMap();
         }
         return cacheL2;
@@ -38,14 +40,15 @@ public class CacheL2 {
      */
 
     public void deleteTask(int taskId) {
-        int key = cacheL1.getKey();
-        if (!(taskId > key)) {
-            if (entityMap.get(key) != null) {
-                cacheL1.deleteNode(entityMap.get(key));
-                entityMap.remove(key);
+        if (idGenerator.isReserved(taskId)) {
+            if (entityMap.get(taskId) != null) {
+                cacheL1.deleteNode(entityMap.get(taskId));
+                entityMap.remove(taskId);
             }
+            idGenerator.deleteKey(taskId);
+            System.out.println("deleted key is "+ taskId);
             lock.writeLock().lock();
-            fileHandler.DeleteFromFile(key);
+            fileHandler.DeleteFromFile(taskId);
             lock.writeLock().unlock();
         }
 
@@ -59,7 +62,7 @@ public class CacheL2 {
      */
     public void UpdateCache(int taskId, String description, String note, boolean status) {
 
-        if (!(taskId > cacheL1.getKey())) {
+        if (idGenerator.isReserved(taskId)) {
             Task task = (Task) entityMap.get(taskId).value;
             task.setDescription(description);
             task.setNote(note);

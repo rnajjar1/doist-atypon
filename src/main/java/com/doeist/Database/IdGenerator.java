@@ -1,27 +1,53 @@
-package com.doeist.Database;//package com.Database;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-// TODO: ٠٢/٠٩/٢٠٢١ if you had time
-//public class IdGenerator {
-//
-//    private int key=0;
-//    private List<Integer> id=new ArrayList<>();
-//
-//
-//    public void getKey(){
-//        key++;
-//        id.add(key);
-//    }
-//
-//
-//    public int generateKey(){
-//
-//
-//
-//
-//    }
-//
-//
-//}
+package com.doeist.Database;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class IdGenerator {
+
+    private static List<Integer> idList;
+
+    private static IdGenerator idGenerator;
+
+    private IdGenerator(){
+
+    }
+
+     public static IdGenerator getIdInstance() {
+         if (idGenerator==null){
+             idGenerator=new IdGenerator();
+             idList=new ArrayList<>();
+         }
+         return idGenerator;
+
+     }
+
+
+
+     public void putKey(int key){
+        idList.add(key);
+    }
+
+
+    public int generateKey(){
+        int key=0;
+
+        while (idList.contains(key)){
+            key++;
+        }
+
+        putKey(key);
+
+        return key;
+    }
+
+    public void deleteKey(int key){
+
+        idList.removeIf(integer -> integer == key);
+
+    }
+
+    public boolean isReserved( int key){
+        return idList.contains(key);
+    }
+}

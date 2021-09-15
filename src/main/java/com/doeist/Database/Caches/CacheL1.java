@@ -1,6 +1,7 @@
 package com.doeist.Database.Caches;
 
 import com.doeist.Database.FileHandler;
+import com.doeist.Database.IdGenerator;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -15,6 +16,7 @@ public class CacheL1<T> {
     private static int count;
     private static Node head, tail;
     private static int key;
+    private static IdGenerator idGenerator;
     private static final int CACHE_SIZE = 3;
 
 
@@ -33,6 +35,7 @@ public class CacheL1<T> {
             head.pre = null;
             tail.next = null;
             key = 0;
+            idGenerator=IdGenerator.getIdInstance();
             count = 0;
             lock=new ReentrantReadWriteLock();
             
@@ -70,7 +73,7 @@ public class CacheL1<T> {
     public Object getFromCache(int key, String table) {
 
         lock.readLock().lock();
-        if (!(key > this.key)) {
+        if (idGenerator.isReserved(key)) {
             if (entityMap.get(key) != null) {
                 Node node = entityMap.get(key);
                 Object result = node.value;
@@ -108,8 +111,7 @@ public class CacheL1<T> {
 
     // put the task in LRU cache if not put it in the file
     public void setIntoCache(T value) {
-        key++;
-
+        key= idGenerator.generateKey();
         if (entityMap.get(key) != null) {
             // refresh the doubly linked list so that MRU task is in head
             Node node = entityMap.get(key);
@@ -140,8 +142,4 @@ public class CacheL1<T> {
         return entityMap;
     }
 
-
-    public int getKey() {
-        return key;
-    }
 }
