@@ -9,45 +9,42 @@ public class IdGenerator {
 
     private static IdGenerator idGenerator;
 
-    private IdGenerator(){
+    private IdGenerator() {
 
     }
 
-     public static IdGenerator getIdInstance() {
-         if (idGenerator==null){
-             idGenerator=new IdGenerator();
-             idList=new ArrayList<>();
-         }
-         return idGenerator;
+    public static IdGenerator getIdInstance() {
+        if (idGenerator == null) {
+            idGenerator = new IdGenerator();
+            idList = new ArrayList<>();
+        }
+        return idGenerator;
 
-     }
+    }
 
 
-
-     public void putKey(int key){
+    public void putKey(int key) {
         idList.add(key);
     }
 
 
-    public int generateKey(){
-        int key=0;
+    public int generateKey() {
+        int key = 0;
 
-        while (idList.contains(key)){
+        while (idList.contains(key)) {
             key++;
         }
-
         putKey(key);
-
         return key;
     }
 
-    public void deleteKey(int key){
+    public void deleteKey(int key) {
 
         idList.removeIf(integer -> integer == key);
 
     }
 
-    public boolean isReserved( int key){
+    public boolean isReserved(int key) {
         return idList.contains(key);
     }
 }

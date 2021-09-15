@@ -22,7 +22,7 @@
             <li><a class="active" href="/delete-task">Delete Task</a></li>
             <li><a href="/update-task">Update Task</a></li>
             <li><a href="/create-task">Create Task</a></li>
-                <li><a href="/all-tasks">All Tasks</a></li>
+            <li><a href="/all-tasks">All Tasks</a></li>
             <li><a href="/my-tasks">My Tasks</a></li>
             <h2 class="Welcome" align="left">
                 Welcome ${employee.getName()}
@@ -56,8 +56,6 @@
                             </thead>
 
                             <tbody>
-<%--                            <c:set var="list" value="${list}"/>--%>
-<%--                            <c:if test="${list.size()!='0'}">--%>
                             <c:forEach var="task" items="${list}">
                                 <tr>
                                     <td>
@@ -78,13 +76,8 @@
                                     <td>
                                         <c:out value="${task.getDate()}"/>
                                     </td>
-
                                 </tr>
                             </c:forEach>
-<%--                            </c:if>--%>
-
-
-
                             </tbody>
                         </table>
 

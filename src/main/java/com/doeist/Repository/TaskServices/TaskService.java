@@ -55,11 +55,9 @@ public class TaskService implements TaskRepository,IRead,IWrite {
 
     @Override
     public List<Task> getTaskSortedByPriority() {
-        List<Task> allTask = taskDao.getAllTask();
-
-        Collections.sort(allTask, new Task());
-
-        return allTask;
+            List<Task> allTask = taskDao.getAllTask();
+            Collections.sort(allTask, new Task());
+            return allTask;
     }
 
     @Override

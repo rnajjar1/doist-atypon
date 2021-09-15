@@ -18,7 +18,7 @@ private int id;
 private String priority;
 
 private List<String> definedOrder = // define my custom order
-            Arrays.asList("High", "Medium", "Low");
+            Arrays.asList("high", "medium", "low");
 
 public Task(){
 
@@ -93,12 +93,11 @@ public Task(){
 
     @Override
     public int compareTo(Task o) {
-        return getDate().compareTo(o.getDate());
+    return getDate().compareTo(o.getDate());
     }
 
     @Override
     public int compare(Task o1, Task o2) {
-
         return Integer.compare(definedOrder.indexOf(o1.getPriority()), definedOrder.indexOf(o2.getPriority()));
 
     }
