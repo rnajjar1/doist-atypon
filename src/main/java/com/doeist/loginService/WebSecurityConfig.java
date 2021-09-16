@@ -42,6 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
                 .antMatchers("/menu").hasRole("employee")
                 // to specify the login for jsp
                 .and().formLogin().loginPage("/login").usernameParameter("email").permitAll()
+
                 .successForwardUrl("/menu");
     }
 

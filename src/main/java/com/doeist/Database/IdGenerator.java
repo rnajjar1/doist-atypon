@@ -28,7 +28,7 @@ public class IdGenerator {
     }
 
 
-    public int generateKey() {
+    public synchronized int generateKey() {
         int key = 0;
 
         while (idList.contains(key)) {
@@ -38,10 +38,9 @@ public class IdGenerator {
         return key;
     }
 
-    public void deleteKey(int key) {
 
+    public synchronized void deleteKey(int key) {
         idList.removeIf(integer -> integer == key);
-
     }
 
     public boolean isReserved(int key) {

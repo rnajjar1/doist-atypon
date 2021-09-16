@@ -24,20 +24,17 @@
             <li><a href="/create-task">Create Task</a></li>
             <li><a href="/all-tasks">All Tasks</a></li>
             <li><a href="/my-tasks">My Tasks</a></li>
-            <h2 class="Welcome" align="left">
+            <h2 class="Welcome" align="left" color="white">
                 Welcome ${employee.getName()}
             </h2>
         </ul>
     </div>
     <div class="menu2">
         <ul class="navigation">
-            <li><b href="#home">Profile</b></li>
-            <li><b href="#news">Setting</b></li>
-            <li><b href="#contact">Contact</b></li>
-            <li><b href="#contact">Log out</b></li>
 
         </ul>
     </div>
+    <b href="<c:url value="/logout" />">Logout</b>
     <div class="wrapper wrapper--w900">
         <div class="card card-6">
             <div class="card-body">

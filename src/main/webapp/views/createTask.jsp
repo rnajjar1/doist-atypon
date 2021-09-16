@@ -32,10 +32,7 @@
     </div>
     <div class="menu2">
         <ul class="navigation">
-            <li><b href="#home">Profile</b></li>
-            <li><b href="#news">Setting</b></li>
-            <li><b href="#contact">Contact</b></li>
-            <li><b href="/login">Log out</b></li>
+
 
         </ul>
     </div>

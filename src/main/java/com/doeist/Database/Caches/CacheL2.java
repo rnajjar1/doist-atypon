@@ -41,13 +41,12 @@ public class CacheL2 {
 
     public void deleteTask(int taskId) {
         if (idGenerator.isReserved(taskId)) {
+            lock.writeLock().lock();
             if (entityMap.get(taskId) != null) {
                 cacheL1.deleteNode(entityMap.get(taskId));
                 entityMap.remove(taskId);
             }
             idGenerator.deleteKey(taskId);
-            System.out.println("deleted key is "+ taskId);
-            lock.writeLock().lock();
             fileHandler.DeleteFromFile(taskId);
             lock.writeLock().unlock();
         }
