@@ -15,9 +15,9 @@ Internally, tasks are saved in an in-memory database.
 ## Author 
 [Rahmeh alnajjar](https://www.linkedin.com/in/rahmeh-alnajjar-445691209/)
 ## Acknowledgments
-* [supervisor](https://www.linkedin.com/in/maldiab/?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAASRy7gBd0bUun_R-to5erirpk0twURRG8E)
+* [Supervisor](https://www.linkedin.com/in/maldiab/?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAASRy7gBd0bUun_R-to5erirpk0twURRG8E)
 * [Spring boot](https://www.baeldung.com/)
-* [styling](https://www.w3schools.com/)
+* [Styling](https://www.w3schools.com/)
 
 
 
